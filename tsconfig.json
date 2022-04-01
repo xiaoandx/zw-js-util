@@ -7,7 +7,9 @@
     "outDir": "./lib",
     "lib": ["ES6", "DOM"],
     "allowJs": true,
-    "strict": false
+    "strict": false,
+    "noImplicitAny": false,
+    "stripInternal": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]

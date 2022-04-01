@@ -22,7 +22,7 @@
  * @author WEI.ZHOU
  * @date 2022-04-01 19:58:23
  * @version V1.0.0
-*/
+ */
 export const arrIsNull = (arr: any[]): boolean => {
   let result: boolean;
   if (arr && arr.length > 0) {
@@ -42,7 +42,7 @@ export const arrIsNull = (arr: any[]): boolean => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:06:41
  * @version V1.0.0
-*/
+ */
 export const map = (array: any[], callback): any[] => {
   const arr = []
   for (let index = 0; index < array.length; index++) {
@@ -62,7 +62,7 @@ export const map = (array: any[], callback): any[] => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:10:20
  * @version V1.0.0
-*/
+ */
 export const reduce = (array: any[], callback, initValue: any): any => {
   let result = initValue
   for (let index = 0; index < array.length; index++) {
@@ -81,7 +81,7 @@ export const reduce = (array: any[], callback, initValue: any): any => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:14:26
  * @version V1.0.0
-*/
+ */
 export const filter = (array: any[], callback): any => {
   const arr = []
   for (let index = 0; index < array.length; index++) {
@@ -92,9 +92,6 @@ export const filter = (array: any[], callback): any => {
   return arr
 }
 
-/* 
-实现find()
-*/
 /**
  * @description     find函数实现，找到第一个满足测试函数的元素并返回那个元素的值，如果找不到，则返回 undefined
  * @functionName    find
@@ -104,7 +101,7 @@ export const filter = (array: any[], callback): any => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:18:27
  * @version V1.0.0
-*/
+ */
 export const find = (array: any[], callback): any => {
   for (let index = 0; index < array.length; index++) {
     if (callback(array[index], index)) {
@@ -114,9 +111,6 @@ export const find = (array: any[], callback): any => {
   return undefined
 }
 
-/* 
-实现findIndex()
-*/
 /**
  * @description     findIndex函数实现，找到第一个满足测试函数的元素并返回那个元素的索引，如果找不到，则返回 -1。
  * @functionName    findIndex
@@ -126,7 +120,7 @@ export const find = (array: any[], callback): any => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:21:13
  * @version V1.0.0
-*/
+ */
 export const findIndex = (array: any[], callback): number => {
   for (let index = 0; index < array.length; index++) {
     if (callback(array[index], index)) {
@@ -145,7 +139,7 @@ export const findIndex = (array: any[], callback): number => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:23:06
  * @version V1.0.0
-*/
+ */
 export const every = (array: any[], callback): boolean => {
   for (let index = 0; index < array.length; index++) {
     if (!callback(array[index], index)) { // 只有一个结果为false, 直接返回false
@@ -155,9 +149,6 @@ export const every = (array: any[], callback): boolean => {
   return true
 }
 
-/* 
-实现some()
-*/
 /**
  * @description     some函数实现，如果数组中至少有一个元素满足测试函数，则返回 true，否则返回 false
  * @functionName    some
@@ -167,7 +158,7 @@ export const every = (array: any[], callback): boolean => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:25:27
  * @version V1.0.0
-*/
+ */
 export const some = (array: any[], callback): boolean => {
   for (let index = 0; index < array.length; index++) {
     if (callback(array[index], index)) { 
@@ -186,7 +177,7 @@ export const some = (array: any[], callback): boolean => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:47:35
  * @version V1.0.0
-*/
+ */
 export const uniqueByIndexOf = (array: any[]): any[] => {
   const arr = []
   array.forEach(item => {
@@ -205,7 +196,7 @@ export const uniqueByIndexOf = (array: any[]): any[] => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:48:15
  * @version V1.0.0
-*/
+ */
 export const uniqueByForEach = (array: any[]): any[] => {
   const arr = []
   const obj = {}
@@ -226,8 +217,8 @@ export const uniqueByForEach = (array: any[]): any[] => {
  * @author WEI.ZHOU
  * @date 2022-04-01 20:50:52
  * @version V1.0.0
-*/
-export const uniqueBySet = (array: Array<any>): any[] => {
+ */
+export const uniqueBySet = (array: any[]): any[] => {
   // return Array.from(new Set(array))
   return [...new Set(array)]
 }

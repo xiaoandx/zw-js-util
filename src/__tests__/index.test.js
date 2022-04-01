@@ -42,7 +42,7 @@ test('strCheck', () => {
 });
 
 test('arrIsNull', () => {
-  expect(util.arrIsNull([])).toBe(false);
+  expect(util.arrIsNull([])).toBe(true);
 });
 
 test('objIsNull', () => {
