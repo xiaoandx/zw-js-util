@@ -9,7 +9,7 @@
 yarn add zw-js-util/ npm install zw-js-util --dev
 
 // 在代码用引用
-import * as utilz from 'zw-js-utilzw-js-util';
+import * as utilz from 'zw-js-util';
 ```
 
 ## 三.API
