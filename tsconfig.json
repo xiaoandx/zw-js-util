@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "downlevelIteration": true,
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "lib": ["ES6", "DOM"],
+    "allowJs": true,
+    "strict": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}

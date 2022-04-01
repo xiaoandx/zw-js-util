@@ -1,0 +1,44 @@
+{
+  "name": "zw-js-util",
+  "version": "1.0.0",
+  "description": "前端开发js/ts常用函数工具包",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc --downlevelIteration",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ts",
+    "js",
+    "jsutil",
+    "jsutils",
+    "utils"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pengxingwang/js-util-plus"
+  },
+  "author": "WEI.ZHOU",
+  "email": "xiaoandx@gmail.com",
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
+    "tslint": "^6.1.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  }
+}
