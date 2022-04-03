@@ -9,7 +9,18 @@ import {
   some,
   uniqueByIndexOf,
   uniqueByForEach,
-  uniqueBySet
+  uniqueBySet,
+  slice,
+  concat,
+  flattenByReduceAndConcat,
+  flattenBySomeAndConcat,
+  chunk,
+  uniqueBySetAndForEach,
+  difference,
+  pull,
+  pullAll,
+  drop,
+  dropRight
 } from './array/index';
 
 import { objIsNull } from './object/index';
@@ -48,6 +59,18 @@ export {
   uniqueByIndexOf,
   uniqueByForEach,
   uniqueBySet,
+  slice,
+  concat,
+  flattenByReduceAndConcat,
+  flattenBySomeAndConcat,
+  chunk,
+  uniqueBySetAndForEach,
+  difference,
+  pull,
+  pullAll,
+  drop,
+  dropRight,
+
   objIsNull,
   strCheck,
   strTransformName,
