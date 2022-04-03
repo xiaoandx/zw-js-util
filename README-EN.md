@@ -14,35 +14,34 @@
 </p>
 
 
- [简体中文](/) |  [English ](/README-EN.md)
+ [简体中文](/README.md) |  [English ](/)
 
 
 
-## 一.介绍 
-> 用Typescript写的在前端开发中常用工具方式，包括数组处理，对象，时间，格式转换，浏览器，cookie等方向
->
-> 每次写项目都要写一些重复的工具类，因此把一些常用的工具类封装起来。
+## 1. Introduce
+> Written in typescript, it is commonly used in front-end development, including array processing, object, time, format conversion, browser, cookie and other directions
+> Every time you write a project, you have to write some duplicate tool classes, so encapsulate some commonly used tool classes.
 
 
 
-## 二.如何使用
+## 2. How to use
 
 ```
 yarn add zw-js-util
 
-// 或使用yarn
+// yarn
 
 npm install zw-js-util --dev
 
-// 在代码引用方式
+// In code reference mode
 import * as utilz from 'zw-js-util';
 ```
 
 
 
-## 三.API
+## 3. API
 
-> 工具文档还未编写中，现通过列表汇总暂时工具包的函数API
+> The tool document has not been written yet. Now we summarize the function API of the temporary toolkit through the list
 
 | 类别 | API       | 说明         |
 | ---- | --------- | ------------ |
@@ -93,41 +92,41 @@ import * as utilz from 'zw-js-util';
 
 
 
-## 四. commit要求
+## 四. Commit requirements
 
-### 4.1规范确定
+### 4.1 Specification determination
 
-> 先前自己通过浏览开发文档都明确了自己的commit message 开发规> 范，我鉴于参考文档，得到下面的规则准则。
+> I have previously defined my commitment message development specifications by browsing the development documents. In view of the reference documents, I get the following rules and guidelines.
 
-### 4.2commit 格式
+### 4.2 Commit format
 
 ```html
 <type> (<scope>) : <subject>
 ```
 
-> **注意：** `>`与`(`   ，`)` 与 `:` ，`:` 与 `<` 必须用一个空格分隔
+> **BeCareful：** `>`or`(`   ，`)` or `:` ，`:` or `<` Must be separated by a space
 
-- **type**	     必选    ->   (用于说明git commit的类别，只允许使用下面的标识)
-  - `feat`：新功能（feature）
-  - `fix/to`：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG
-    - `fix`：产生diff并自动修复此问题。适合于一次提交直接修复问题
-    - `to`：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix
-  - `docs`：文档（documentation）
-  - `style`：格式（不影响代码运行的变动）
-  - `refactor`：重构（即不是新增功能，也不是修改bug的代码变动）
-  - `perf`：优化相关，比如提升性能、体验
-  - `test`：增加测试
-  - `chore`：构建过程或辅助工具的变动
-  - `revert`：回滚到上一个版本
-  - `merge`：代码合并
-  - `sync`：同步主线或分支的Bug。
-- **scope**        可选    ->   （用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同）
-- **subject**      必选
-  - 说明:
-    - 1. subject是commit目的的简短描述，不超过50个字符 (ZH/CN)
-    - 2. 建议使用中文（感觉中国人用中文描述问题能更清楚一些）
+- **type**	     Required - > (used to describe the category of GIT commit. Only the following identification is allowed)
+  - `feat`：New features
+  - `fix/to`：Bug repair can be a bug found by QA or a bug found by R &amp; D
+    - `fix`：Generate diff and automatically fix the problem. It is suitable for one-time submission to fix problems directly
+    - `to`：Only diff is generated and this problem is not automatically fixed. Suitable for multiple submissions. Fix is used when submitting the final fix
+  - `docs`：documentation
+  - `style`：Format (changes that do not affect code operation)
+  - `refactor`：Refactoring (i.e. not a new function or a code change to modify a bug)
+  - `perf`：Optimize related, such as improving performance and experience
+  - `test`：Add test
+  - `chore`：Changes in the construction process or auxiliary tools
+  - `revert`：Rollback to previous version
+  - `merge`：Code merge
+  - `sync`：Synchronize the bugs of the main line or branch.
+- **scope**        Optional - > (used to describe the scope of the impact of commit, such as data layer, control layer, view layer, etc., which varies according to the project)
+- **subject**      Mandatory
+  - explain:
+    - 1. Subject is a short description of the purpose of commit, no more than 50 characters (zh / CN)
+    - 2. It is suggested to use Chinese (I feel that Chinese people can describe problems more clearly in Chinese)
 
-### 4.3格式用例
+### 4.3 Format use case
 
 ```
 fix (docs) : Modify annotation requirements and variable type requirements
@@ -136,10 +135,9 @@ fix (docs) : Modify annotation requirements and variable type requirements
 - ......
 ```
 
+## 5. Code contribution and PR considerations
 
-## 五. 代码贡献及PR注意事项
-
-### 5.1项目结构
+### 5.1 Project structure
 ```
 src（源码文件将）
     --array（工具模块类别，数组）
@@ -149,18 +147,15 @@ src（源码文件将）
     --index.ts（工具函数统一导出）
     ...
 ```
-### 5.2添加工具函数
-1.新增对应的类型的工具函数必须到指定类别模块进行函数编写，如现在需要添加一个判断数组`是否为空`的工具函数,就需要要再src -> `array`文件夹中的`index.ts`中添加对应的`arrIsNull`的函数；编写对应的工具函数自己使用 `exprot`导出即可。
-
-2.还需要在src -> index.ts文件中，把刚刚写在`array`模块中`arrIsNull`的函数统一导出到`index.ts`中
-
-3.配置导出后**必须编写**对应的单元测试类，就在src -> `_tests_` 文件夹中对应模块中添加对应的单元测试
-
-4.运行单元测试,执行命令如下，如果单元测试有问题，会在控制台中显示出来
+### 5.2 Add tool function
+1. To add a tool function of the corresponding type, you must write the function in the specified category module. If you need to add a tool function to judge whether the array is empty, you need to add the `index.ts`in the SRC - > array folder Add the corresponding `arrIsNull`function to ts'; Write the corresponding tool functions and export them by using `expor`.
+2. In `src` - > index.ts file, uniformly export the functions of `arrIsNull`just written in the `array` module to `index.ts `medium
+3. After configuration export, **must write the unit test class corresponding to** in `src` - >`_ tests_`  Add the corresponding unit test to the corresponding module in the folder
+4. Run the unit test and execute the following commands. If there is a problem with the unit test, it will be displayed in the console
 ```cmd
 npm test
 ```
-**注意：** 对应函数接口可以添加不同的单元测试
+**Note: ** different unit tests can be added to the corresponding function interface
 
-5.只有单元测试通过后才可以提交代码，进行代码PR
+5. Only after the unit test is passed can the code be submitted for code PR.
 
