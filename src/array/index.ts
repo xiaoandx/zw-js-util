@@ -290,7 +290,7 @@ export const concat = (array: any[], ...values) => {
 
 /**
  * @description     数组嵌套扁平化，取出嵌套数组(多维)中的所有元素放到一个新数组(一维)中,递归 + reduce() + concat()
-                    如: [1, [3, [2, 4]]]  ==>  [1, 3, 2, 4]
+ * 如: [1, [3, [2, 4]]]  ==>  [1, 3, 2, 4]
  * @functionName    flattenByReduceAndConcat
  * @param {any[]}   array     需要嵌套扁平化的数组
  * @return {any[]}  嵌套扁平化后的新数组
@@ -387,7 +387,7 @@ export const uniqueBySetAndForEach = (array1: any[], array2: any[]): any[] => {
 
 /**
  * @description     数组取差异,得到array1中所有不在array2中的元素组成的数组(不改变原数组)
-                    如: [1,3,5,7].difference([5, 8])  ==> [1, 3, 7]
+ * 如: [1,3,5,7].difference([5, 8])  ==> [1, 3, 7]
  * @functionName    difference
  * @param {any[]}   array1    判断的数组
  * @param {any[]}   array2    判断条件去差的数组
@@ -407,7 +407,7 @@ export const difference = (array1: any[], array2: any[]): any[] => {
 
 /**
  * @description     删除数组中部分元素,删除数组中与value相同的元素, 返回所有删除元素的数组,原数组发生了改变
-                    如: pull([1,3,5,3,7], 2, 7, 3, 7) ===> 原数组变为[1, 5], 返回值为[3,3,7]
+ * 如: pull([1,3,5,3,7], 2, 7, 3, 7) ===> 原数组变为[1, 5], 返回值为[3,3,7]
  * @functionName    pull
  * @param {any[]}   array     需要删除元素的数组
  * @param {any[]}   values    需要删除的元素(可变)
@@ -421,7 +421,7 @@ export const pull = (array: any[], ...values): any[] => {
     return []
   }
 
-  var result = []
+  const result = []
   for (let index = 0; index < array.length; index++) {
     const item = array[index]
     if (values.indexOf(item) !== -1) {
@@ -436,7 +436,7 @@ export const pull = (array: any[], ...values): any[] => {
 
 /**
  * @description     删除数组中部分元素,删除数组中与values数组中相同的元素, 返回所有删除元素的数组,原数组发生了改变
-                    如: pull([1,3,5,3,7], [2, 7, 3, 7]) ===> 原数组变为[1, 5], 返回值为[3,3,7]
+ * 如: pull([1,3,5,3,7], [2, 7, 3, 7]) ===> 原数组变为[1, 5], 返回值为[3,3,7]
  * @functionName    pullAll
  * @param {any[]}   array     需要删除元素的数组
  * @param {any[]}   values    需要删除的元素(可变)
@@ -454,8 +454,8 @@ export const pullAll = (array: any[], values: any[]): any[] => {
 
 /**
  * @description     得到数组的部分元素，得到当前数组过滤掉左边count个后剩余元素组成的数组
-                    说明: 不改变当前数组, count默认是1
-                    如: drop([1,3,5,7], 2) ===> [5, 7]
+ * 说明: 不改变当前数组, count默认是1
+ * 如: drop([1,3,5,7], 2) ===> [5, 7]
  * @functionName    drop
  * @param {ary[]}   array     需要过滤的数组
  * @param {number}  count     过滤的个数
@@ -474,8 +474,8 @@ export const drop = (array: any[], count: number = 1): any[] => {
 
 /**
  * @description     得到数组的部分元素，得到当前数组过滤掉右边count个后剩余元素组成的数组
-                    说明: 不改变当前数组, count默认是1
-                    如: dropRight([1,3,5,7], 2) ===> [1, 3]
+ * 说明: 不改变当前数组, count默认是1
+ * : dropRight([1,3,5,7], 2) ===> [1, 3]
  * @functionName    dropRight
  * @param {ary[]}   array     需要过滤的数组
  * @param {number}  count     过滤的个数
