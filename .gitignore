@@ -1,6 +1,7 @@
 # defult
 node_modules
 /lib
+/doc
 /example
 # webstrom
 .idea/

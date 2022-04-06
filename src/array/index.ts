@@ -13,6 +13,7 @@
 */
 'use strict';
 
+import { isEmpty } from "../object";
 
 /**
  * @description     判断数组是否为空
@@ -490,4 +491,109 @@ export const dropRight = (array: any[], count: number = 1): any[] => {
   }
 
   return array.filter((item, index) => index < array.length - count)
+}
+
+/**
+ * @description     数组去重
+ * @functionName    arrayRemoveRepeat
+ * @param {any[]}   data     需要去重的数组
+ * @return {any[]}  去重后的数组
+ * @author WEI.ZHOU
+ * @date 2021-11-11 15:46:07
+ * @version V1.0.0
+ */
+export function arrayRemoveRepeat(data: any[]): any[] {
+  const r = [];
+  for (let i = 0; i < data.length; i++) {
+    let flag = true;
+    if (!isEmpty(data[i].id) || !isEmpty(data)) {
+      let temp = data[i];
+      for (let j = 0; j < r.length; j++) {
+        if (temp === r[j]) {
+          flag = false;
+          break;
+        }
+      }
+      if (flag) {
+        r.push(temp);
+      }
+    }
+  }
+  return r;
+}
+
+/**
+ * @description       两数组求交集
+ * Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ * a & b : [ 3, 4, 5 ]
+ * @functionName      arrayIntersection
+ * @param {any[]}     a   数组a
+ * @param {any[]}     b   数组b
+ * @return {any[]}    交集后的数组(去重)
+ * @author WEI.ZHOU
+ * @date 2021-11-11 15:46:59
+ * @version V1.0.0
+ */
+export function arrayIntersection(a: any[], b: any[]): any[] {
+  const result = [];
+  for (let i = 0; i < b.length; i++) {
+    let temp = b[i];
+    for (let j = 0; j < a.length; j++) {
+      if (temp === a[j]) {
+        result.push(temp);
+        break;
+      }
+    }
+  }
+  return arrayRemoveRepeat(result);
+}
+
+/**
+ * @description       两数组求并集
+ * Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ * a + b : [ 1, 2, 3, 4, 5, 6, 7 ]
+ * @functionName      arrayUnion
+ * @param {Array}     a   数组a
+ * @param {Array}     b   数组b
+ * @return {Array}    并集后的数组(去重) 
+ * @author WEI.ZHOU
+ * @date 2021-11-11 15:48:05
+ * @version V1.0.0
+ */
+export function arrayUnion(a: any[], b: any[]): any[] {
+  return arrayRemoveRepeat(a.concat(b));
+}
+
+/**
+ * @description       数组求差集  a - b
+ * Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ * a - b: [ 1, 2 ]            b - a: [ 6, 7 ]
+ * @functionName     arrayDifference
+ * @param {Array}     a   数组a
+ * @param {Array}     b   数组b
+ * @return {Array}    去差集后的数组(去重) 
+ * @author WEI.ZHOU
+ * @date 2021-11-11 15:49:29
+ * @version V1.0.0
+ */
+export function arrayDifference(a: any[], b:any[]): any[] {
+  let clone = a.slice(0);
+  for (let i = 0; i < b.length; i++) {
+    let temp = b[i];
+    for (let j = 0; j < clone.length; j++) {
+      if (temp === clone[j]) {
+        clone.splice(j, 1);
+      }
+    }
+  }
+  return arrayRemoveRepeat(clone);
+}
+
+// ==================================== 引入其他数组操作函数 ====================================
+
+import { objectArrayDeduplication, objectArraySortASC, objectArraySortDESC } from "./object.array";
+export {
+  objectArrayDeduplication,
+  objectArraySortASC,
+  objectArraySortDESC
 }

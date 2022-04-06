@@ -183,7 +183,7 @@ test('chunk', () => {
 // ===================================两个数组合并去重单元测试=====================================
 
 /**
- * @deprecated: 将数组拆分成多个 size 长度的区块，每个区块组成小数组,整体组成一个二维数组
+ * @deprecated: 两个数组合并去重
  */
 test('uniqueBySetAndForEach', () => {
   expect(util.uniqueBySetAndForEach([1, 2, 3, 4], [3, 2, 5])).toEqual([1, 2, 3, 4, 5]);
@@ -247,3 +247,105 @@ test('dropRight', () => {
 test('dropRight', () => {
   expect(util.dropRight([1, 3, 5, 7])).toEqual([1, 3, 5]);
 })
+
+/**
+ * @deprecated: 数组去重
+ */
+test('arrayRemoveRepeat', () => {
+  expect(util.arrayRemoveRepeat([1, 2, 3, 4, 3])).toEqual([1, 2, 3, 4]);
+})
+
+/**
+ * @deprecated: 两数组求交集
+ *             Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ *                   a & b : [ 3, 4, 5 ]
+ */
+test('arrayIntersection', () => {
+  expect(util.arrayIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])).toEqual([3, 4, 5]);
+})
+
+/**
+ * @deprecated:两数组求并集
+ *             Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ *                   a + b : [ 1, 2, 3, 4, 5, 6, 7 ]
+ */
+test('arrayUnion', () => {
+  expect(util.arrayUnion([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])).toEqual([1, 2, 3, 4, 5, 6, 7]);
+})
+
+/**
+ * @deprecated:数组求差集  a - b
+ *             Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ *                   a - b: [ 1, 2 ]            b - a: [ 6, 7 ]
+ */
+test('arrayDifference', () => {
+  expect(util.arrayDifference([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])).toEqual([1, 2]);
+})
+
+/**
+ * @deprecated:数组求差集  a - b
+ *             Test: a: [ 1, 2, 3, 4, 5 ]  b: [ 3, 4, 5, 6, 7 ]
+ *                   a - b: [ 1, 2 ]            b - a: [ 6, 7 ]
+ */
+test('arrayDifference', () => {
+  expect(util.arrayDifference([3, 4, 5, 6, 7], [1, 2, 3, 4, 5])).toEqual([6, 7]);
+})
+
+/**
+ * @deprecated: 对象数组去重
+ */
+test('objectArrayDeduplication', () => {
+  expect(util.objectArrayDeduplication([
+    {
+      id: 1,
+      name: "z"
+    },
+    {
+      id: 2,
+      name: "w"
+    },
+    {
+      id: 3,
+      name: "h"
+    },
+    {
+      id: 1,
+      name: "z"
+    }
+  ]
+  )).toEqual([{
+    id: 1,
+    name: "z"
+  },
+  {
+    id: 2,
+    name: "w"
+  },
+  {
+    id: 3,
+    name: "h"
+  }]);
+})
+
+/**
+ * @deprecated: 对象数组排序-升序
+ */
+test("objectArraySortASC", () => {
+  expect(util.objectArraySortASC([{ id: 2 }, { id: 1 }, { id: 3 }])).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
+})
+
+test("objectArraySortASC", () => {
+  expect(util.objectArraySortASC([{ id: 2 }, { id: 1 }, { id: 3 }], 'id')).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }])
+})
+
+/**
+  * @deprecated: 对象数组排序-降序
+  */
+test("objectArraySortDESC", () => {
+  expect(util.objectArraySortDESC([{ id: 2 }, { id: 1 }, { id: 3 }])).toEqual([{ id: 3 }, { id: 2 }, { id: 1 }])
+})
+
+test("objectArraySortDESC", () => {
+  expect(util.objectArraySortDESC([{ id: 2 }, { id: 1 }, { id: 3 }], 'id')).toEqual([{ id: 3 }, { id: 2 }, { id: 1 }])
+})
+
